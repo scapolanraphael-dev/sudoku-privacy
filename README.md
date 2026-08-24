@@ -28,6 +28,9 @@ coquille, ce sont deux engagements différents pris envers deux publics.
 
 ## ⚠️ Cette URL ne doit jamais casser
 
+L'URL de référence est **<https://scapolanraphael-dev.github.io/sudoku-privacy/>**
+(pas de domaine personnalisé — voir « Migrer vers un domaine » plus bas).
+
 Elle est référencée à trois endroits, et une URL morte casse chacun d'eux :
 
 1. **Play Console** → fiche du magasin, champ « Politique de confidentialité ».
@@ -43,7 +46,12 @@ Conséquences pratiques :
 
 - **ne jamais renommer ni supprimer ce dépôt** — le nom du dépôt est dans l'URL ;
 - ne jamais désactiver GitHub Pages dans les réglages du dépôt ;
-- garder le dépôt **public**.
+- garder le dépôt **public** ;
+- **ne rien mettre dans `CNAME` qui ne soit pas un domaine réel et possédé.**
+  Déjà arrivé une fois : le fichier a contenu `quarktop.games.support`, la partie
+  gauche d'une adresse e-mail. Pages l'a lu comme un domaine personnalisé et a
+  redirigé l'URL ci-dessus vers un hôte inexistant — la politique n'était plus
+  servie nulle part, sans le moindre message d'erreur côté GitHub.
 
 ## Publier / mettre à jour
 
@@ -55,6 +63,29 @@ git add -A && git commit -m "docs: mise à jour de la politique de confidentiali
 ```
 
 Activation initiale : *Settings → Pages → Source: Deploy from a branch → `main` / `root`*.
+
+## Migrer vers un domaine personnalisé (plus tard, si l'envie vient)
+
+Rien ne presse : Google ne fait aucune différence entre un `github.io` et un
+domaine propre, du moment que la page est publique, stable et en HTTPS. Mais la
+migration est prévue pour, et elle ne casse pas les liens déjà déposés :
+poser le domaine dans `CNAME` + les enregistrements DNS chez le registrar suffit,
+et GitHub redirige l'ancienne URL vers la nouvelle.
+
+Trois choses à ne pas oublier ce jour-là :
+
+1. **Ne pas le faire pendant une revue Play en cours.** GitHub ne provisionne le
+   certificat HTTPS qu'après la propagation DNS — de quelques minutes à quelques
+   heures. Pendant cette fenêtre l'URL en `https://` peut échouer, et Play comme
+   UMP exigent HTTPS. Attendre « Enforce HTTPS » dans *Settings → Pages* avant de
+   considérer la migration comme faite.
+2. **Corriger les URL codées en dur.** Les balises `<link rel="alternate"
+   hreflang>` de [`index.html`](index.html) et [`en/index.html`](en/index.html)
+   citent explicitement `scapolanraphael-dev.github.io`. La redirection les
+   laisserait fonctionnelles mais fausses — trois occurrences par page.
+3. **Mettre à jour les trois inscriptions** listées plus haut (Play Console,
+   message de consentement, lien dans les Réglages de l'app). La redirection les
+   sauve, mais faire dépendre un document légal d'une redirection est une dette.
 
 ## À mettre à jour quand l'app change
 
