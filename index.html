@@ -1,154 +1,24 @@
 <!doctype html>
-<html lang="fr" class="no-js">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Politique de confidentialité — Sudoku</title>
 <meta name="description" content="Politique de confidentialité de l'application Sudoku (com.quarktop.games.sudoku).">
-<style>
-  :root {
-    --bg: #f6f6f4;
-    --surface: #ffffff;
-    --text: #1c1c1a;
-    --muted: #5f5f59;
-    --border: #e2e2dc;
-    --accent: #3f5f8f;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #17171a;
-      --surface: #202024;
-      --text: #ececea;
-      --muted: #a3a39d;
-      --border: #33333a;
-      --accent: #8fb0e0;
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 0 20px 80px;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
-  }
-  main { max-width: 720px; margin: 0 auto; }
-  header {
-    padding: 48px 0 28px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 8px;
-  }
-  h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.01em; }
-  h2 {
-    font-size: 1.1rem;
-    margin: 40px 0 10px;
-    letter-spacing: -0.005em;
-  }
-  h2 .num { color: var(--muted); font-weight: 600; margin-right: 8px; }
-  .sub { color: var(--muted); margin: 0; font-size: 0.95rem; }
-  .meta {
-    margin-top: 18px;
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  p, li { color: var(--text); }
-  ul { padding-left: 22px; }
-  li { margin: 6px 0; }
-  a { color: var(--accent); }
-  code {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1px 5px;
-    font-size: 0.88em;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  }
-  .callout {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 6px;
-    padding: 14px 18px;
-    margin: 20px 0;
-  }
-  .callout p { margin: 0; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 0.94rem;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  th { color: var(--muted); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  .table-wrap { overflow-x: auto; }
-  .langs {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 24px 0 4px;
-    padding: 12px 14px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-  }
-  .langs .label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--muted);
-    margin-right: 4px;
-  }
-  .langs button {
-    font: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--text);
-    cursor: pointer;
-  }
-  .langs button:hover { border-color: var(--accent); }
-  .langs button[aria-pressed="true"] {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-  }
-  [data-lang] { display: none; }
-  [data-lang].active { display: block; }
-  /* Sans JavaScript, aucune bascule n'est possible : on montre tout plutôt que
-     de laisser une moitié des lecteurs devant une langue qu'ils ne lisent pas. */
-  .no-js [data-lang] { display: block; }
-  footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-</style>
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="fr" href="https://scapolanraphael-dev.github.io/sudoku-privacy/">
+<link rel="alternate" hreflang="en" href="https://scapolanraphael-dev.github.io/sudoku-privacy/en/">
+<link rel="alternate" hreflang="x-default" href="https://scapolanraphael-dev.github.io/sudoku-privacy/">
 </head>
 <body>
-<script>document.documentElement.classList.remove('no-js');</script>
 <main>
 
-<div class="langs" role="group" aria-label="Langue / Language">
-  <span class="label">Langue · Language</span>
-  <button type="button" data-set="fr" aria-pressed="true">Français</button>
-  <button type="button" data-set="en" aria-pressed="false">English</button>
-</div>
+<nav class="langbar" aria-label="Langue">
+  <span class="current">Français</span>
+  <span class="sep">·</span>
+  <a href="en/" hreflang="en" lang="en">Read this page in English</a>
+</nav>
 
-<!-- ============================ FRANÇAIS ============================ -->
-<section data-lang="fr" class="active" lang="fr">
 
   <header>
     <h1>Politique de confidentialité</h1>
@@ -320,168 +190,6 @@
   <h2><span class="num">12.</span>Contact</h2>
   <p><a href="mailto:rscapdev@gmail.com">rscapdev@gmail.com</a></p>
 
-</section>
-
-<!-- ============================= ENGLISH ============================= -->
-<section data-lang="en" lang="en">
-
-  <header>
-    <h1>Privacy Policy</h1>
-    <p class="sub"><strong>Sudoku</strong> app — <code>com.quarktop.games.sudoku</code></p>
-    <p class="meta">Last updated: 24 August 2026</p>
-  </header>
-
-  <p>This page explains what data the Sudoku app processes, why, and how you stay in
-  control of it. It is written to be read, not to hide behind jargon.</p>
-
-  <div class="callout">
-    <p><strong>In short:</strong> your games, your streak and your statistics never leave your
-    phone. The only collection that leaves the device comes from advertising, and in Europe
-    it does not start until you have agreed — an agreement you can withdraw at any time from
-    the app's settings.</p>
-  </div>
-
-  <h2><span class="num">1.</span>Who is responsible</h2>
-  <p>The app is published by <strong>Raphaël Scapolan</strong>, an independent sole-trader
-  developer operating under the name <strong>Quarktop</strong>, acting as data controller under
-  the GDPR. For any question about this policy or your data:
-  <a href="mailto:rscapdev@gmail.com">rscapdev@gmail.com</a>.</p>
-
-  <h2><span class="num">2.</span>What stays on your device</h2>
-  <p>The following is stored <strong>locally</strong>, in the app's private storage. It is
-  not sent to anyone — not to us, not to a third party — and we have no access to it:</p>
-  <ul>
-    <li>your games in progress and completed, your daily streak, your statistics
-      (win rate, best times);</li>
-    <li>your settings: theme, language, contrast, sound, vibration, mistake allowance;</li>
-    <li>the time and days of your daily reminder.</li>
-  </ul>
-  <p>Reminders are <strong>local notifications</strong>: your phone schedules them itself. No
-  server is involved, and no notification reports anything back to us.</p>
-  <p>Uninstalling the app erases all of it. The "Reset statistics" button in settings erases
-  the statistics immediately.</p>
-
-  <h2><span class="num">3.</span>What advertising collects</h2>
-  <p>The app is free and funded by advertising. Ads are served by <strong>Appodeal</strong>
-  and its partner ad networks. To select and measure ads, these companies may process:</p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Data</th><th>What it is used for</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Android advertising ID (AAID)</td>
-          <td>A resettable device identifier, used to cap ad repetition and measure performance</td>
-        </tr>
-        <tr>
-          <td>IP address</td>
-          <td>Security, and to infer an <strong>approximate location</strong> (country, region)
-              for relevant ads</td>
-        </tr>
-        <tr>
-          <td>Technical device information</td>
-          <td>Model, Android version, language, carrier, screen size — to serve a suitable ad format</td>
-        </tr>
-        <tr>
-          <td>Ad interactions</td>
-          <td>Impressions, clicks, videos watched through — billing and measurement</td>
-        </tr>
-        <tr>
-          <td>Diagnostics</td>
-          <td>Technical errors from the ad kit, so it keeps working</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p><strong>Never collected:</strong> your name, email address, phone number, contacts,
-  photos, or GPS location. The app requires no account and <strong>requests no location
-  permission</strong> — the approximate location mentioned above is inferred from the IP
-  address by our providers, not read from the device. No account identifier and no purchase
-  history is passed to them: the app has neither.</p>
-
-  <h2><span class="num">4.</span>Your consent, and how to withdraw it</h2>
-  <p>If you are in the European Economic Area, the United Kingdom or Switzerland, a consent
-  form appears <strong>on first launch, before the ad kit starts</strong>. Nothing is
-  collected for advertising purposes until you have answered. The form is built on the IAB
-  Transparency &amp; Consent Framework (TCF v2), through Google's User Messaging Platform.</p>
-  <p>Consent is only meaningful if it can be taken back. You can reopen the form and change
-  your choice <strong>at any time</strong>:</p>
-  <div class="callout">
-    <p>In the app: <strong>Settings → Privacy → Ad preferences</strong></p>
-  </div>
-  <p>Declining personalised advertising costs you no feature of the game: non-personalised
-  ads continue to be shown.</p>
-  <p>Independently of the app, Android lets you reset or delete your advertising ID under
-  <em>Settings → Google → Ads</em>.</p>
-
-  <h2><span class="num">5.</span>Legal bases</h2>
-  <ul>
-    <li><strong>Consent</strong> (GDPR art. 6(1)(a)): reading and writing information on your
-      device for advertising purposes, and personalised advertising.</li>
-    <li><strong>Legitimate interest</strong> (art. 6(1)(f)): serving non-personalised ads,
-      fraud prevention and the technical operation of the ad kit.</li>
-  </ul>
-  <p>The data described in section 2 is not processed by us at all: it does not leave your
-  device.</p>
-
-  <h2><span class="num">6.</span>Who data is shared with</h2>
-  <p>The data in section 3 is passed to Appodeal, acting as an advertising intermediary, and
-  to the ad networks taking part in the auction. The list of partners and their purposes is
-  available inside the consent form itself.</p>
-  <ul>
-    <li>Appodeal privacy policy:
-      <a href="https://appodeal.com/privacy-policy/" rel="noopener">appodeal.com/privacy-policy</a></li>
-    <li>Google privacy policy:
-      <a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a></li>
-  </ul>
-  <p>We do not sell any data, and pass none to any third party outside this advertising chain.</p>
-
-  <h2><span class="num">7.</span>Transfers outside the European Union</h2>
-  <p>Our advertising providers are established outside the European Union, notably in the
-  United States. Such transfers rely on the mechanisms of Chapter V of the GDPR — the European
-  Commission's Standard Contractual Clauses and, where applicable, certification under the
-  <em>EU-US Data Privacy Framework</em>. Details are in the providers' policies linked in
-  section 6.</p>
-
-  <h2><span class="num">8.</span>Retention</h2>
-  <p>Local data (section 2) is kept until you erase it or uninstall the app. Advertising data
-  (section 3) is kept by the relevant providers under their own policies; your consent itself
-  is requested again at least every 13 months.</p>
-
-  <h2><span class="num">9.</span>Your rights</h2>
-  <p>You have the right of access, rectification, erasure, restriction, objection and
-  portability, and the right to withdraw your consent at any time (section 4). To exercise
-  them, write to <a href="mailto:rscapdev@gmail.com">rscapdev@gmail.com</a>.</p>
-  <p>One useful clarification: because the app has no accounts, we hold no identifier that
-  could let us find you. A request concerning advertising data must therefore be addressed
-  directly to the providers in section 6, who are the only ones holding it. We will help you
-  reach them if needed.</p>
-  <p>You may also lodge a complaint with a supervisory authority — in France, the
-  <a href="https://www.cnil.fr" rel="noopener">CNIL</a>.</p>
-
-  <h2><span class="num">10.</span>Children</h2>
-  <p>The game itself suits any age: it is a sudoku, there is nothing unsuitable in it, and its
-  content rating reflects that. This section is not about content — it is about
-  <strong>data</strong>.</p>
-  <p>The app is designed and offered for a <strong>general audience</strong>. It is neither
-  designed nor marketed for children, and does not knowingly collect data about a child. The
-  reason is advertising: the consent mechanism described in section 4 assumes someone able to
-  consent for themselves. In the European Union, below the national age of digital consent —
-  15 in France — the authorisation of a holder of parental responsibility is required.</p>
-  <p>If you are a parent and believe a child has used the app and had data about them
-  processed, write to <a href="mailto:rscapdev@gmail.com">rscapdev@gmail.com</a>: we will act
-  on it and help you reach the providers listed in section 6.</p>
-
-  <h2><span class="num">11.</span>Changes</h2>
-  <p>This policy may change, in particular if the app's features or providers change. The
-  last-updated date appears at the top of this page. Substantial changes will be announced
-  in the app.</p>
-
-  <h2><span class="num">12.</span>Contact</h2>
-  <p><a href="mailto:rscapdev@gmail.com">rscapdev@gmail.com</a></p>
-
-</section>
 
 <footer>
   Sudoku — <code>com.quarktop.games.sudoku</code> · Raphaël Scapolan (Quarktop) ·
@@ -489,32 +197,5 @@
 </footer>
 
 </main>
-
-<script>
-  var buttons = document.querySelectorAll('.langs button');
-  function setLang(lang, updateHash) {
-    document.querySelectorAll('[data-lang]').forEach(function (s) {
-      s.classList.toggle('active', s.getAttribute('data-lang') === lang);
-    });
-    buttons.forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang));
-    });
-    document.documentElement.lang = lang;
-    // The hash makes a language directly linkable — useful when this URL has to
-    // be handed to someone who does not read French.
-    if (updateHash) history.replaceState(null, '', '#' + lang);
-  }
-  buttons.forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.getAttribute('data-set'), true); });
-  });
-  var fromHash = (location.hash || '').replace('#', '').toLowerCase();
-  if (fromHash === 'en' || fromHash === 'fr') {
-    setLang(fromHash, false);
-  } else if (!(navigator.language || '').toLowerCase().startsWith('fr')) {
-    // Non-French speakers land on English without having to hunt for the toggle.
-    setLang('en', false);
-  }
-</script>
-
 </body>
 </html>

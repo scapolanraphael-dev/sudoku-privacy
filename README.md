@@ -3,30 +3,36 @@
 Politique de confidentialité publique de l'application **Sudoku**
 (`com.quarktop.games.sudoku`), servie par GitHub Pages.
 
-Une seule page : [`index.html`](index.html), **bilingue FR/EN**, sélecteur de
-langue en haut de page.
+**Deux pages statiques**, une par langue, sans une ligne de JavaScript :
 
-La langue est aussi adressable par fragment d'URL — pratique quand l'URL doit
-être transmise à quelqu'un qui ne lit pas le français :
+| Fichier | URL | Langue |
+|---|---|---|
+| [`index.html`](index.html) | `…/sudoku-privacy/` | Français |
+| [`en/index.html`](en/index.html) | `…/sudoku-privacy/en/` | English |
+| [`style.css`](style.css) | — | feuille de style partagée |
 
-- `…/sudoku-privacy/` → français par défaut, anglais si la langue du navigateur
-  n'est pas le français
-- `…/sudoku-privacy/#en` → anglais
-- `…/sudoku-privacy/#fr` → français
+Chaque page porte un lien vers l'autre en haut, et les deux se déclarent
+mutuellement via `<link rel="alternate" hreflang>`.
 
-Sans JavaScript, les deux versions s'affichent l'une après l'autre plutôt qu'une
-seule : une politique de confidentialité doit rester lisible même dégradée.
+**Pourquoi deux pages et pas une bascule JavaScript** : la première version
+utilisait un sélecteur de langue en JS. Il suffit que les scripts ne tournent pas
+— capture statique, navigateur restrictif, extension de blocage, impression
+papier, lecteur d'écran mal luné — pour qu'une des deux langues devienne
+inatteignable. Sur un document qui a une valeur juridique et que Google peut
+examiner, c'est un risque gratuit. Deux URL réelles reliées par un `<a href>` ne
+peuvent pas tomber en panne. **Ne pas réintroduire de JavaScript ici.**
 
-**Toute modification doit être portée dans les deux langues.** Les deux sections
-comptent 12 rubriques identiques ; une divergence entre les deux versions est un
-risque juridique, pas une coquille.
+**Toute modification doit être portée dans les deux pages.** Elles comptent 12
+rubriques identiques ; une divergence entre les deux versions n'est pas une
+coquille, ce sont deux engagements différents pris envers deux publics.
 
 ## ⚠️ Cette URL ne doit jamais casser
 
 Elle est référencée à trois endroits, et une URL morte casse chacun d'eux :
 
 1. **Play Console** → fiche du magasin, champ « Politique de confidentialité ».
-   Une URL inaccessible au moment de la revue = fiche rejetée.
+   Une URL inaccessible au moment de la revue = fiche rejetée. Y mettre l'URL
+   racine (française) : elle porte le lien vers l'anglais.
 2. **Le formulaire de consentement Google UMP / Appodeal**, affiché au premier
    lancement en EEE/RU. Le message de consentement ne peut pas être certifié sans
    politique accessible — donc plus de publicité personnalisée en Europe.
