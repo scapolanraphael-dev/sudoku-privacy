@@ -48,8 +48,14 @@ Repasser sur cette page si :
   (voir P3.5 de `docs/roadmap.md` dans le dépôt du jeu) ;
 - le libellé du chemin `Réglages → Confidentialité → Préférences publicitaires`
   change dans l'app — il est cité tel quel en section 4 ;
-- le public cible déclaré sur Play inclut une tranche d'âge enfant : la section 10
-  devient fausse, et le code doit alors passer `tagForUnderAgeOfConsent: true`.
+- le public cible déclaré sur Play inclut une tranche d'âge enfant. Ce n'est pas une
+  question de classement de contenu (le jeu sortira « Tout public ») mais de régime
+  publicitaire : déclarer une audience enfant fait basculer sous **Families Policy**,
+  où la publicité personnalisée et l'identifiant publicitaire sont interdits pour les
+  moins de 13 ans, et où le kit publicitaire doit être certifié Families — ce
+  qu'Appodeal n'est pas. La section 10 deviendrait fausse, le code devrait passer
+  `tagForUnderAgeOfConsent: true`, et le chiffrage revenu de la roadmap tomberait.
+  **La déclaration « grand public » est le choix retenu.**
 
 Penser à mettre à jour la date de dernière mise à jour, présente **dans les deux
 langues**.
