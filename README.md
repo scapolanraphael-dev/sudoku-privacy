@@ -3,7 +3,23 @@
 Politique de confidentialité publique de l'application **Sudoku**
 (`com.quarktop.games.sudoku`), servie par GitHub Pages.
 
-Une seule page : [`index.html`](index.html), bilingue FR/EN.
+Une seule page : [`index.html`](index.html), **bilingue FR/EN**, sélecteur de
+langue en haut de page.
+
+La langue est aussi adressable par fragment d'URL — pratique quand l'URL doit
+être transmise à quelqu'un qui ne lit pas le français :
+
+- `…/sudoku-privacy/` → français par défaut, anglais si la langue du navigateur
+  n'est pas le français
+- `…/sudoku-privacy/#en` → anglais
+- `…/sudoku-privacy/#fr` → français
+
+Sans JavaScript, les deux versions s'affichent l'une après l'autre plutôt qu'une
+seule : une politique de confidentialité doit rester lisible même dégradée.
+
+**Toute modification doit être portée dans les deux langues.** Les deux sections
+comptent 12 rubriques identiques ; une divergence entre les deux versions est un
+risque juridique, pas une coquille.
 
 ## ⚠️ Cette URL ne doit jamais casser
 

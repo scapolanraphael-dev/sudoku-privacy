@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,20 +89,35 @@
   .table-wrap { overflow-x: auto; }
   .langs {
     display: flex;
-    gap: 6px;
-    margin-bottom: 26px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 4px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .langs .label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-right: 4px;
   }
   .langs button {
     font: inherit;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    padding: 6px 14px;
+    padding: 8px 18px;
     border-radius: 999px;
     border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--muted);
+    background: var(--bg);
+    color: var(--text);
     cursor: pointer;
   }
+  .langs button:hover { border-color: var(--accent); }
   .langs button[aria-pressed="true"] {
     background: var(--accent);
     border-color: var(--accent);
@@ -110,6 +125,9 @@
   }
   [data-lang] { display: none; }
   [data-lang].active { display: block; }
+  /* Sans JavaScript, aucune bascule n'est possible : on montre tout plutôt que
+     de laisser une moitié des lecteurs devant une langue qu'ils ne lisent pas. */
+  .no-js [data-lang] { display: block; }
   footer {
     margin-top: 56px;
     padding-top: 20px;
@@ -120,9 +138,11 @@
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.remove('no-js');</script>
 <main>
 
 <div class="langs" role="group" aria-label="Langue / Language">
+  <span class="label">Langue · Language</span>
   <button type="button" data-set="fr" aria-pressed="true">Français</button>
   <button type="button" data-set="en" aria-pressed="false">English</button>
 </div>
@@ -472,7 +492,7 @@
 
 <script>
   var buttons = document.querySelectorAll('.langs button');
-  function setLang(lang) {
+  function setLang(lang, updateHash) {
     document.querySelectorAll('[data-lang]').forEach(function (s) {
       s.classList.toggle('active', s.getAttribute('data-lang') === lang);
     });
@@ -480,12 +500,20 @@
       b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang));
     });
     document.documentElement.lang = lang;
+    // The hash makes a language directly linkable — useful when this URL has to
+    // be handed to someone who does not read French.
+    if (updateHash) history.replaceState(null, '', '#' + lang);
   }
   buttons.forEach(function (b) {
-    b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); });
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set'), true); });
   });
-  // Non-French speakers land on English without having to hunt for the toggle.
-  if (!(navigator.language || '').toLowerCase().startsWith('fr')) setLang('en');
+  var fromHash = (location.hash || '').replace('#', '').toLowerCase();
+  if (fromHash === 'en' || fromHash === 'fr') {
+    setLang(fromHash, false);
+  } else if (!(navigator.language || '').toLowerCase().startsWith('fr')) {
+    // Non-French speakers land on English without having to hunt for the toggle.
+    setLang('en', false);
+  }
 </script>
 
 </body>
