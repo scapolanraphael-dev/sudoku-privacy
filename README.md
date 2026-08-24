@@ -60,10 +60,31 @@ Repasser sur cette page si :
 Penser à mettre à jour la date de dernière mise à jour, présente **dans les deux
 langues**.
 
-## Point à vérifier avant la toute première publication
+## Formulaire « Sécurité des données » de Play : quoi cocher
 
-La liste des données de la section 3 décrit ce que collecte un intermédiaire
-publicitaire de ce type. Avant de publier, la confronter à la documentation
-« Data Safety » d'Appodeal elle-même, qui fait foi — la configuration retenue
-(Appodeal seul, `core` + `iab`, sans médiation tierce) est plus étroite que leur
-cas générique.
+Vérifié le 2026-08-24 contre la page officielle d'Appodeal
+(<https://docs.appodeal.com/android/data-protection/app-privacy-details>) et
+recoupé avec la déclaration Google du SDK Mobile Ads
+(<https://developers.google.com/admob/android/privacy/play-data-disclosure>).
+
+| Type de donnée | À cocher ? | Pourquoi |
+|---|---|---|
+| Identifiants d'appareil (AAID) | **Oui** — collecté + partagé | Le SDK tire `com.google.android.gms.permission.AD_ID`, confirmé dans le manifeste fusionné de la build release |
+| Interactions dans l'app | **Oui** — collecté + partagé | Affichages, clics, vidéos rewarded |
+| Diagnostics | **Oui** — collecté | Erreurs du kit publicitaire |
+| Autres performances de l'app | **Oui** — collecté | Signaux techniques appareil |
+| **Localisation** (approx. ou précise) | **Non** | Appodeal ne la collecte que si l'app détient une autorisation de localisation. L'app n'en déclare aucune — vérifié dans le manifeste fusionné : seules `VIBRATE`, `POST_NOTIFICATIONS`, `RECEIVE_BOOT_COMPLETED`, plus `INTERNET` / `ACCESS_NETWORK_STATE` / `ACCESS_WIFI_STATE` / `AD_ID` ajoutées par le SDK. La localisation grossière déduite de l'IP ne relève pas de cette catégorie chez Google (l'IP est traitée à part) |
+| **Identifiants utilisateur** | **Non** | Uniquement si `Appodeal.setUserId()` est appelé. Absent du code |
+| **Historique d'achat** | **Non** | Uniquement si l'app transmet des achats au SDK. Pas d'achats intégrés |
+
+À revérifier si l'une de ces trois dernières lignes change (ajout d'achats
+intégrés, d'un identifiant joueur, ou d'une fonctionnalité géolocalisée).
+
+⚠️ La page d'Appodeal précise qu'elle **ne couvre que son propre SDK** : chaque
+réseau publicitaire activé dans le tableau de bord Appodeal a sa propre
+déclaration. À reprendre le jour où des réseaux sont activés côté dashboard.
+
+Deux réponses du formulaire restent à confirmer auprès d'Appodeal, non
+documentées sur leur page : le chiffrement en transit, et le mécanisme de
+demande de suppression. (Google déclare TLS pour son propre SDK ; ne pas le
+supposer pour Appodeal sans vérification.)
