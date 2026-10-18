@@ -1,0 +1,109 @@
+:root {
+    --bg: #f6f6f4;
+    --surface: #ffffff;
+    --text: #1c1c1a;
+    --muted: #5f5f59;
+    --border: #e2e2dc;
+    --accent: #3f5f8f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17171a;
+      --surface: #202024;
+      --text: #ececea;
+      --muted: #a3a39d;
+      --border: #33333a;
+      --accent: #8fb0e0;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 20px 80px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  header {
+    padding: 48px 0 28px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  h1 { font-size: 1.75rem; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.1rem;
+    margin: 40px 0 10px;
+    letter-spacing: -0.005em;
+  }
+  h2 .num { color: var(--muted); font-weight: 600; margin-right: 8px; }
+  .sub { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .meta {
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  p, li { color: var(--text); }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); }
+  code {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.88em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .callout p { margin: 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.94rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th { color: var(--muted); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .table-wrap { overflow-x: auto; }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  /* Bandeau de langue : un lien, pas un bouton. Il change de page, ce qui est
+     exactement ce qu'un lien fait — et ce qui survit à JavaScript désactivé,
+     à une capture statique, à une impression papier et à un lecteur d'écran. */
+  .langbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0 4px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+  .langbar .current {
+    font-weight: 700;
+    color: var(--text);
+  }
+  .langbar .sep { color: var(--border); }
+  .langbar a { font-weight: 600; }
