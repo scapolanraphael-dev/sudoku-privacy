@@ -26,6 +26,19 @@ peuvent pas tomber en panne. **Ne pas réintroduire de JavaScript ici.**
 rubriques identiques ; une divergence entre les deux versions n'est pas une
 coquille, ce sont deux engagements différents pris envers deux publics.
 
+## Autres jeux hébergés ici
+
+Ce dépôt sert aussi de **point d'hébergement commun** pour la politique de confidentialité des autres jeux
+Quarktop (le nom du dépôt est figé par l'URL de Sudoku, voir plus bas). Un dossier par jeu, même structure
+(français à la racine du dossier, anglais dans `en/`, feuille de style copiée) :
+
+| Jeu | URL (français) | Source du texte |
+|---|---|---|
+| Mojidoku | <https://scapolanraphael-dev.github.io/sudoku-privacy/mojidoku/> | dépôt `mojidoku`, `docs/privacy-policy-*.md`, régénéré par `privacy/build_privacy.py` |
+
+**Les mêmes règles s'appliquent** à chaque dossier : l'URL ne doit jamais casser (fiches des stores, formulaire
+de consentement). Ne jamais renommer ni supprimer un dossier de jeu publié.
+
 ## ⚠️ Cette URL ne doit jamais casser
 
 L'URL de référence est **<https://scapolanraphael-dev.github.io/sudoku-privacy/>**
